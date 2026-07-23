@@ -65,44 +65,30 @@ function gameLoop(){
 
 }
 
+function gameLoop() {
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    drawRoad();
+    update();
+
+    drawPlayer();
+    drawEnemies();
+    drawScore();
+
+    requestAnimationFrame(gameLoop);
+}
+
 gameLoop();
-// ماشین‌های دشمن
-let enemies = [
-    { x: 120, y: -150, width: 60, height: 90, speed: 5 },
-    { x: 220, y: -350, width: 60, height: 90, speed: 4 }
-];
+canvas.addEventListener("touchmove", (e) => {
+    e.preventDefault();
 
-let score = 0;
+    const rect = canvas.getBoundingClientRect();
+    const touchX = e.touches[0].clientX - rect.left;
 
-function drawEnemies() {
-    ctx.fillStyle = "red";
+    player.x = (touchX / rect.width) * canvas.width - player.width / 2;
 
-    enemies.forEach(enemy => {
-        ctx.fillRect(enemy.x, enemy.y, enemy.width, enemy.height);
+    if (player.x < 100) player.x = 100;
+    if (player.x > 240) player.x = 240;
 
-        enemy.y += enemy.speed;
-
-        if (enemy.y > canvas.height) {
-            enemy.y = -120;
-            enemy.x = Math.random() > 0.5 ? 120 : 220;
-            score++;
-        }
-
-        // برخورد
-        if (
-            player.x < enemy.x + enemy.width &&
-            player.x + player.width > enemy.x &&
-            player.y < enemy.y + enemy.height &&
-            player.y + player.height > enemy.y
-        ) {
-            alert("💥 Game Over\nScore: " + score);
-            location.reload();
-        }
-    });
-}
-
-function drawScore() {
-    ctx.fillStyle = "white";
-    ctx.font = "24px Arial";
-    ctx.fillText("Score: " + score, 10, 30);
-}
+}, { passive: false });
