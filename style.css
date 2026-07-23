@@ -122,3 +122,22 @@ button{
 }
 
 }
+.game-card{
+    max-width:450px;
+    margin:25px auto;
+    padding:25px;
+    border:2px solid #00e5ff;
+    border-radius:20px;
+    background:rgba(255,255,255,0.05);
+    box-shadow:0 0 20px rgba(0,229,255,.3);
+    text-align:center;
+}
+
+.game-card h2{
+    margin-bottom:10px;
+}
+
+.game-card p{
+    margin-bottom:20px;
+    color:#ccc;
+}
