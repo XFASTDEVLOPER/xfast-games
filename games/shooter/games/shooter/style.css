@@ -1,0 +1,27 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+background:#111;
+display:flex;
+flex-direction:column;
+align-items:center;
+font-family:Arial;
+color:white;
+}
+
+h1{
+margin:20px;
+color:#00e5ff;
+}
+
+canvas{
+background:#000;
+border:3px solid #00e5ff;
+width:95%;
+max-width:400px;
+height:auto;
+}
