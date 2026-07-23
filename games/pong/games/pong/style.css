@@ -1,0 +1,26 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#111;
+    color:#fff;
+    font-family:Arial,sans-serif;
+    text-align:center;
+}
+
+h1{
+    margin:20px;
+    color:#00e5ff;
+}
+
+canvas{
+    background:#000;
+    border:3px solid #00e5ff;
+    max-width:95%;
+    height:auto;
+    display:block;
+    margin:20px auto;
+}
